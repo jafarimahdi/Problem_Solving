@@ -1,0 +1,12 @@
+.head{
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    background-color: aquamarine;
+
+}
+p{ 
+    border-style: dashed;
+    text-align: center;
+    color: rgb(161, 99, 74);
+}
