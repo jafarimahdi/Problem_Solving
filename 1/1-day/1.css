@@ -1,16 +1,22 @@
 body{
-background-color: rgb(219, 235, 228);
+background-color: rgb(221, 233, 228);
+margin: 0;
 }
-.navbar{
-    margin: 0;
-    padding: 0;
-    background-color: rgb(66, 83, 78);
-    padding-left: 150px;
-    border-color: black;
-    height: 50px;
-    
+.navbar {
+margin: 0;
+padding: 0;
+background-color: rgb(66, 83, 78);
+height: 60px;
 }
-
+.navbar #word{
+   position: absolute;
+   left: 150px;
+   top: 4px;
+}
+a{
+    padding-top: 30;
+    margin:30;
+}
 .text{
     padding-left: 150px;
 }
@@ -20,7 +26,6 @@ background-color: rgb(219, 235, 228);
     color: rgb(175, 180, 178);
 }
 #border1{
-    
     border-style: groove;
     width: 50%;
     color:black;
@@ -33,14 +38,11 @@ background-color: rgb(219, 235, 228);
     width: 5%;
 }
 .title2{
-
     border-style: groove;
     width: 75%;
     margin-bottom: 15px;
     padding: 0;
-
 }
-
 .title2 h2, h4{
 margin: 4px ;
 }

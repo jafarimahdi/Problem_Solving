@@ -1,0 +1,41 @@
+
+body{
+    margin:5px;
+    background-image:url("topography.png");
+}
+article{
+    padding: 7%;
+}
+
+.head{
+    height: 70px;
+    background-color: #333333;
+}
+img{
+    margin: 20px;
+    margin-left: 120px;
+}
+.link{
+    position:absolute;
+    left: 60%;
+    top: 29px;
+}
+.link,a{
+    padding: 10px;
+    color: #ff0099;
+}
+#title{
+    font-size: 30px;
+}
+#red{
+    color: red;
+}
+
+p{ 
+    text-align: center;
+    color: rgb(161, 99, 74);
+}
+#pont{
+    text-align: center;
+    padding:20px;
+}
