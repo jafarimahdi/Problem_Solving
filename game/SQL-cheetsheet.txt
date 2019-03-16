@@ -1,0 +1,112 @@
+How can we create a database?
+CREATE DATABASE astral;
+How can we switch between databases?
+USE astral;
+How can we create a table?
+CREATE TABLE student (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+  name VARCHAR(30) NOT NULL, 
+  age INT NOT NULL, 
+  isHappy BOOLEAN DEFAULT true NOT NULL
+  );
+
+CREATE TABLE language (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(30)
+  );
+
+CREATE TABLE student_language (
+  student_id INT NOT NULL, 
+  language_id INT NOT NULL, 
+  learnedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (student_id) REFERENCES student (id),  
+  FOREIGN KEY (language_id) REFERENCES language (id)
+  );
+How can we check the existing tables?
+SHOW TABLES;
+How can we check the current table's properties?
+DESCRIBE student;
+How can we add data to a table?
+--Add 3 new students
+INSERT INTO student(name, age) VALUES ("Bob Smith", 14), ("Jane Doe", 17), ("Kirk Smith", 21);
+
+--Add 3 new languages
+INSERT INTO language(name) VALUES ("English"), ("German"), ("Hungarian");
+
+--Set up the connection between students and languages
+--Bob Smith - English
+--Jane Doe - English
+--Kirk Smith - Hungarian
+INSERT INTO student_language(student_id, language_id) VALUES (1,1), (2,1), (3,3);
+How can we retrieve all data from a table?
+SELECT * FROM student;
+How can we retrieve all data but only specific columns from a table?
+SELECT name, age FROM student;
+How can we retrieve specific data from a table?
+SELECT * FROM student WHERE name="Bob Smith";
+
+--Query all students where the name starts with "Bob" and can have anything after that
+SELECT * FROM student WHERE name LIKE "Bob%";
+
+SELECT * FROM student WHERE name LIKE "%Smith";
+
+SELECT * FROM student WHERE age > 10;
+
+--Query all students who are NOT 10 years old
+SELECT * FROM student WHERE age <> 10;
+
+SELECT * FROM student WHERE age BETWEEN 10 AND 20;
+
+--Query all students where name is missing
+SELECT * FROM student WHERE name IS NULL;
+
+SELECT * FROM student WHERE name IS NOT NULL;
+How can we modify data in a table?
+UPDATE student SET name = "Robert Smith" WHERE id = 1;
+
+UPDATE student SET age = 20;
+How can we remove data from a table?
+DELETE FROM student_language;
+How can you select only the different values?
+SELECT DISTINCT * FROM student;
+How can you manipulate the order of the result?
+SELECT * FROM student ORDER BY age;
+
+--Order students first by age then by name (ascending order by default)
+SELECT * FROM student ORDER BY age, name;
+
+--Order students first by age ascending then by name descending
+SELECT * FROM student ORDER BY age ASC, name DESC;
+
+--Order students first by age descending then by name (ascending because of default)
+SELECT * FROM student ORDER BY age DESC, name;
+What are the common aggregate functions?
+--Query how many students do we have in the table
+SELECT COUNT(*) AS number_of_students FROM student;
+
+--Query the average age by students
+SELECT AVG(age) AS average_age FROM student;
+
+--Query the distinct ages and how many students are that old
+SELECT age, COUNT(*) AS students_by_age FROM student GROUP BY age;
+
+--Query the distinct ages which are greater than 15 and how many students are that old
+SELECT age, COUNT(*) AS students_by_age FROM student GROUP BY age HAVING age > 15;
+
+--Query the minimum age found in students
+SELECT MIN(age) AS minimum_age FROM student;
+
+--Query information about the students who are the oldest
+SELECT name, age FROM student WHERE age = (SELECT MAX(age) FROM student);
+How can we select from multiple tables?
+SELECT student.name, language.name FROM student
+INNER JOIN student_language
+  ON student.id = student_language.student_id 
+INNER JOIN language
+  ON student_language.language_id = language.id;
+
+SELECT student.name, language.name FROM student
+LEFT JOIN student_language
+  ON student.id = student_language.student_id 
+LEFT JOIN language
+  ON student_language.language_id = language.id;

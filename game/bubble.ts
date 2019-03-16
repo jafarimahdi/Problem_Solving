@@ -21,14 +21,6 @@ function advancedBubble(input, boolean) {
 return input
 }
 
-
-
-
-
-
-
-
-
 //  Example:
 console.log(bubble([34, 12, 24, 9, 5]));
 //  should print [5, 9, 12, 24, 34]
