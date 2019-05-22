@@ -27,10 +27,6 @@ for (let high = 1; high <= lineCount; high++) {
     console.log(percent);
     percent = '%';
   }
-
-
-
-
   else {
     for (let width = 1; width < 3; width++) {
 

@@ -4,7 +4,7 @@
 // Assemble the fragments into the out variable
 
 let out: string = '';
-let notSoCrypticMessage: number[] = [1, 12, 1, 2, 11, 1, 7, 11, 1, 49, 1, 3, 11, 1, 50, 11];
+let notSoCrypticMessage: number[] = [1, 12, 1, 2, 11, 1, 7, 11, 1, 49, 1, 3, 11, 1, 50, 11 ,8];
 
 let hashmap = {
   7: 'run around and desert you',
@@ -14,7 +14,8 @@ let hashmap = {
   12: 'give you up, ',
   1: 'Never gonna ',
   11: '\n',
-  3: 'say goodbye '
+  3: 'say goodbye ',
+  8:'heyy ;)'
 };
 
 notSoCrypticMessage.forEach(element =>{

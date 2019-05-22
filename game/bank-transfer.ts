@@ -10,48 +10,59 @@ const accounts: any[] = [
 // should return: ['Igor', 203004099.2]
 
 function getNameAndBalance(input) {
-  let show = [];
   for (let person of accounts) {
     if (input === person.accountNumber) {
-      show.push(person.clientName)
-      show.push(person.balance)
+      return [person.clientName, person.balance]
     }
   }
-  return show
 }
-console.log(getNameAndBalance(23456311));
+console.log(getNameAndBalance(11234543));
+//----------------------------------------
 
 
-// Create function that transfers an amount of cash from one account to another
-// it should have four parameters:
-//  - the accounts
-//  - from accountNumber
-//  - to accountNumber
-//  - amount of cash to transfer
-//
-// Log "404 - account not found" if any of the account numbers don't exist to the console.
-
-
-let list = [];  // har moghe khasti keys ya value in Object ha ra moghyayese koni ba ham bayad onha ro to jaye dige befresti ta besheh comper kard
-
-function transferAmount(accounts, from, to_account, amount) {
-
-  for (let account of accounts) { list.push(account.accountNumber)
-
-    if (list.indexOf(from) === -1 || list.indexOf(to_account) === -1) { console.log('404 is not found') }
-
-    if (account.accountNumber == from) { account.balance -= amount }
-    if (account.accountNumber == to_account) { account.balance += amount }
-  }
-}
-//transferAmount(accounts, 43546731, 11234543, 800000) 
- transferAmount(accounts, 43546731, 23456311, 500.0);
-console.log(accounts);
-
-
-
+// creat function that transfert money from one account to other
 //After printing the "accounts" it should look like:
 // const accounts = [
 //	{ clientName: 'Igor', accountNumber: 11234543, balance: 203004099.2 },
 //	{ clientName: 'Vladimir', accountNumber: 43546731, balance: 5204099571.23 },
 //	{ clientName: 'Sergei', accountNumber: 23456311, balance: 1354100.0 }
+
+function transferAmount(accounts, from, to_account, amount) {
+  let senderAccount
+  let reciverAccount
+
+  // check the conditions: we have the sender and the receiver, if the sender has enough money
+  for (let item of accounts) {
+    if (item.accountNumber === from) {
+      senderAccount = item
+    }
+    if (item.accountNumber === to_account) {
+      reciverAccount = item
+    }
+  }
+
+  if (senderAccount === undefined) {
+    throw new Error('sender account not found')
+  }
+
+  if (reciverAccount === undefined) {
+    throw new Error('reciver account not found')
+  }
+
+  if (senderAccount.balance < amount) {
+    throw new Error('the balance is not enough');
+  }
+
+  // transfer the money
+  senderAccount.balance -= amount;
+  reciverAccount.balance += amount;
+}
+console.log(accounts)
+
+transferAmount(accounts, 43546731, 23456311, 500.0)
+
+console.log(accounts);
+
+
+
+// sakhtan varible jadid hamisheh komk mikonad ta rahatar masale ro hal konid 

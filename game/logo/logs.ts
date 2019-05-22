@@ -1,35 +1,32 @@
 'use strict';
+
 // Read all data from 'log.txt'.
 // Each line represents a log message from a web server
 // Write a function that returns an array with the unique IP adresses.
 // Write a function that returns the GET / POST request ratio.
 
+const fs = require('fs');
 
-let fs = require('fs');
-let read = fs.readFileSync('log.txt', 'utf-8');
-read = read.split('\n')
-//console.log(read);
+function reader(file) {
+  let read = fs.readFileSync(file, 'utf-8').split('\n')
+  try {
+    fs.readFileSync(file, 'utf-8')
+  } catch (e) {
+    throw new Error("can't read the file")
+  }
+  let litralArray = read.map(element => element.split(' '))
+  let uniqList = litralArray.map(element => element[8]);
 
-let makeList = read.map(value => value.split('  '))
-console.log(makeList);
-
-let uniqeNumber = [];
-makeList.forEach(element =>  uniqeNumber.push(element[2]) )
-
-console.log(uniqeNumber)
-
-
-
-
-
-
-
-
-
-
-
-
-//              key words 
-
-// 1- dar SPLIT(' ')  fasele beyn qutation besyar mohem hast va bayad ba deghat be an tavajoh konid
-// 2- split(' ')  ba ARRAY kar nemikonad bayad hatman ba  element ya file string estefadeh shavad 
+  let result = {};
+  for (let value of litralArray) {
+    if (result[value[11]] === undefined) {
+      result[value[11]] = 1
+    } else {
+      result[value[11]]++
+    }
+  }
+  let out: any[] = Object.entries(result)
+  let ratio = out[1][1] / out[0][1];
+  return { uniqList, result, ratio }
+}
+console.log(reader('log.txt'))

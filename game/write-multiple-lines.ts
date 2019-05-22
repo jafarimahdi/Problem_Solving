@@ -1,4 +1,3 @@
-import { readFileSync } from "fs";
 
 // Create a function that takes 3 parameters: a path, a word and a number
 // and is able to write into a file.
@@ -17,30 +16,24 @@ function wirtefiles(path: string, word: string, line: number) {
   console.log(repat);
   try {
     fs.writeFileSync(path, repat);
-  } catch(error){
-  error
-  } finally {
-    console.log("it's finish ");
+  } catch (error) {
+    error
+  }
+  wirtefiles('file.txt', 'apple', 3);
+
+  //    ----------------------------------------------
+  let read;
+  try {
+    read = fs.readFileSync('file.txt', 'utf-8');
+    console.log(read);
+
+  } catch (err) {
+    console.log('ther is some mistake');
+
   }
 }
-wirtefiles('file.txt', 'apple', 3);
 
-//    ----------------------------------------------
+//                  key words
 
-try {
-  let read = readFileSync('file.txt', 'utf-8');
-  console.log(read);
-
-} catch (err) {
-  console.log('ther is some mistake');
-
-} finally {
-  console.log('read it done');
-
-}
-
-
-//                  key words 
-
-//  1- har moghe khasti az list khali baraye .push() estefadeh konid hatma alamte list khali [] ra begzarid ta betavand befahmad ke in list montezere push hast
-// 2- 
+//  1- har moghe khasti az list khali baraye .push() estefadeh konid hatma alamte list khali [] ra begzarid 
+//ta betavand befahmad ke in list montezere push hast

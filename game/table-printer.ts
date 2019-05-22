@@ -25,3 +25,35 @@ const ingredients: any[] = [
 	{ name: 'soda', inStock: 0, needsCooling: true }
 ];
 
+function table() {
+	let line = '+--------------------+---------------+----------+';
+	let head = '| Ingredient         | Needs cooling | In stock |';
+	let firstBox = 18;
+	let secoundBox = 13;
+	let lastBox = 8;
+	let space = ' ';
+
+	let result = line + '\n';
+	result += head + '\n';
+	result += line + '\n';
+
+	for (let item of ingredients) {
+
+		item.needsCooling ? item.needsCooling = 'Yes' : item.needsCooling = 'NO';
+		if (item.inStock <= 0) { item.inStock = '-' }
+
+		let lengthName = space.repeat(firstBox - item.name.length)
+		let lengthNeedColing = space.repeat(secoundBox - item.needsCooling.length)
+		let lengthInStock = space.repeat(lastBox - item.inStock.toString().length)
+
+		result += `| ${item.name}${lengthName} | ${item.needsCooling}${lengthNeedColing} | ${item.inStock}${lengthInStock} | \n`;
+	}
+	result += line;
+	return result
+}
+console.log(table())
+
+
+
+
+
