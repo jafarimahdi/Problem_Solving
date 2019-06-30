@@ -1,4 +1,5 @@
 
+// power of string
 let arr1 = [1, 2, 3, 4, 5, 5, 6, 2];
 let arr2 = [8, 5, 4, 6, 8];
 

@@ -3,9 +3,9 @@
 const fs = require('fs');
 
 function reading(file) {
-  let read = fs.readFileSync(file, 'utf-8').split('\n');
+  let read;
   try {
-    fs.readFileSync(file, 'utf-8')
+    read = fs.readFileSync(file, 'utf-8').split('\n');
   } catch (e) {
     console.log('there is some problem for reading the file');
   }
@@ -27,10 +27,9 @@ function reading(file) {
     }
   }
   let makingSort: any[] = Object.entries(result);
-  
-  let sorting = makingSort.sort((a, b) => b[1] - a[1]);
 
+  let sorting = makingSort.sort((a, b) => b[1] - a[1]);
 
   console.log(sorting);
 }
-reading('t2.csv')
+reading('most visit.csv')

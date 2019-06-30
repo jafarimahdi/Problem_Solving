@@ -2,9 +2,9 @@
 
 function adverge(path) {
   const fs = require('fs')
-  let read = fs.readFileSync(path, 'utf-8').split('\n')
+  let read;
   try {
-    fs.readFileSync(path, 'utf-8')
+    read = fs.readFileSync(path, 'utf-8').split('\n');
   } catch (e) {
     console.log("couldn't read the file");
   }
@@ -13,7 +13,7 @@ function adverge(path) {
 
   // object file
   let result = {};
-  
+
   // loop for the head
   for (let i = 0; i < head.length; i++) {
     let num = 0;
@@ -25,5 +25,5 @@ function adverge(path) {
   }
   return result
 }
-console.log(adverge('2.txt'));
+console.log(adverge('average.txt'));
 

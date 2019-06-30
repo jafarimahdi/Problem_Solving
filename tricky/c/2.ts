@@ -1,12 +1,12 @@
 'use strict';
 function finder(file) {
   const fs = require('fs');
+  let readFile;
   try {
-    fs.readFileSync(file, 'utf-8')
+    readFile = fs.readFileSync(file, 'utf-8')
   } catch (e) {
     throw new Error('there is nothing');
   }
-  let readFile = fs.readFileSync(file, 'utf-8');
 
   let read = readFile.split('')
   let amount = {}

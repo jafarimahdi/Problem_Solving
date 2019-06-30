@@ -29,4 +29,4 @@ function reading(file) {
   }
   return result
 }
-console.log(reading('2.txt'));
+console.log(reading('average.txt'));

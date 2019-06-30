@@ -2,36 +2,33 @@
 const fs = require('fs');
 
 function reading(txtFile) {
-  let read = fs.readFileSync(txtFile, 'utf-8').split('\n')
-  
+  let read;
   try {
-    fs.readFileSync(txtFile, 'utf-8')
+    read = fs.readFileSync(txtFile, 'utf-8').split('\n');
   } catch (e) {
     throw new Error('ther is nothing')
   }
-  
+
   let rows = read.map(element => element.split(' '))
   let head = rows.shift();
   let countries = head.slice(0, -1);
-  
-  
+
   for (let i = 0; i < countries.length; i++) {
     let find = {}
-    
+
     for (let row of rows) {
       find[row[i]] = row[3]
     }
-    
-    let find2 = Object.entries(find)  
+
+    let find2 = Object.entries(find)
     let couldestyear = find2[0][1];
-    let warmestyear = find2[find2.length -1][1]
-    
+    let warmestyear = find2[find2.length - 1][1]
+
     let out = `${countries[i]} => ${couldestyear}, ${warmestyear}`
     return out
   }
 }
-
-console.log(reading('t2.txt'));
+console.log(reading('weather.txt'));
 
 
 /*
