@@ -69,5 +69,4 @@ class Shelter {
     }
     return result;
   }
-
 }

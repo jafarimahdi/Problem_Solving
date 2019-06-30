@@ -51,7 +51,6 @@ class Ship {
     }
   }
 
-
   getPoorPirats() {
     let poorPirats: string[] = [];
     this.listOfPirats.forEach(pirat => {
@@ -84,8 +83,6 @@ class Ship {
     })
     this.lastDayOnTheShip();
   }
-
-
 }
 
 let seeDog = new Ship();

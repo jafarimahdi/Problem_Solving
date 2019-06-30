@@ -25,7 +25,3 @@ for (let row of rows) {
   }
 }
 console.log(result);
-
-
-
-

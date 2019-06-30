@@ -89,7 +89,7 @@ let dish2 = new Dish('soup', { ingredient1: 2, ingredient2: 2 });
 let dish3 = new Dish('dessert', { ingredient1: 2, ingredient2: 1 });
 let dish4 = new Dish('fish', { ingredient1: 999, ingredient2: 4 })
 
-let newOrder1 = new Online([dish1, dish2], 'andrassy ut 66');
+let newOrder1 = new Online([dish1, dish2], 'andrassy ut 18');
 let newOrder2 = new Online([dish4], 'Bajza utca 5');
 let newOrder3 = new Offline([dish2, dish3], 5);
 let newOrder4 = new Offline([dish4, dish3], 10);

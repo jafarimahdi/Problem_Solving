@@ -7,22 +7,16 @@ let rows = readFile.map(line => line.split(' '))
 let head = rows.shift()
 let countries = head.slice(0, -1)
 
-
-
 countries.forEach((country, index) => {
   let makeObject = {}
 
   for (let row of rows) {
     makeObject[row[3]] = row[index]
-
   }
   let out = `${country} => ${findColdWarm(makeObject)}`
 
   console.log(out);
-
-
 });
-
 
 //  yek object va yek value ra migirad va comper mikonad value ra
 
@@ -44,7 +38,6 @@ function findColdWarm(myObject) {
       yearWarm = keys
     }
   }
-
   return [yearCold, yearWarm]
 }
 

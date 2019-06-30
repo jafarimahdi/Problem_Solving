@@ -25,8 +25,6 @@ for (let i = 0; i < countries.length; i++) {
   let couldYear = listKeysValues[0][1]
   let warmYear = listKeysValues[listKeysValues.length - 1][1]
 
-
   console.log(`${countries[i]}  =>  ${couldYear}, ${warmYear}`);
 }
-
 
