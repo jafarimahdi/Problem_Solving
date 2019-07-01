@@ -22,7 +22,7 @@ function familyFrendlizer(file, list) {
       count++
     }
   })
-  
+
   // agar ehtajag be nevashatn file jadid bod 
   function writeFile(path: string, content: string): boolean {
     try {

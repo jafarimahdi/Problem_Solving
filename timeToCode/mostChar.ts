@@ -2,9 +2,9 @@
 
 const fs = require('fs');
 function read(file) {
-  let read = fs.readFileSync(file, 'utf-8').split('')
+  let read;
   try {
-    fs.readFileSync(file, 'utf-8')
+    read = fs.readFileSync(file, 'utf-8').split('')
   } catch (e) {
     throw new Error("can't read the file")
   }
@@ -20,7 +20,7 @@ function read(file) {
   let findMostCommon: any[] = Object.entries(result)
   let sort = findMostCommon.sort((a, b) => b[1] - a[1])
   let mostCommon = sort[0]
-  
+
   return mostCommon
 }
-console.log(read('txt.txt'));
+console.log(read('mostChar.txt'));

@@ -16,6 +16,5 @@ for (let i = 0; i < mix.length; i++) {
   for (let j = 0; j < mix.length; j++) {
     console.log(mix[i], mix[j]);
   }
-
-
 }
+

@@ -78,7 +78,6 @@ class Race {
     for (let element of this.players) { if (element.getName() === winner.getName()) { findWinner = element } }
     // give them their price 
 
-
     // go through every players, and go though his bets, find out whether is a winner bet, and if it a winner bet,
     // then give double amount of bet to that player and write out.
 

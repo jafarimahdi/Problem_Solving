@@ -1,7 +1,5 @@
 ' use strict';
 
-import { exists } from "fs";
-
 const fs = require('fs');
 
 function readFile(path: string) {
@@ -13,7 +11,7 @@ function readFile(path: string) {
   }
 }
 
-function waether(path: string): Object {
+function weather(path: string): Object {
   let read = readFile(path);
   let matrix = read.map(element => element.split(' '))
   let head = matrix.shift()
@@ -35,4 +33,4 @@ function waether(path: string): Object {
   }
   return out
 }
-console.log(waether('t2.txt'));
+console.log(weather('weather.txt'));
