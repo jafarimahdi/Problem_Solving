@@ -9,7 +9,7 @@ function customerChoice(choice, data) {
         }
     }
 
-    return result;
+    return JSON.stringify(result);
 }
 
-console.log(customerChoice("Wheat", data));
+console.log(customerChoice("Brown", data));

@@ -18,7 +18,7 @@ function groupBeerByBrand(data) {
 
         return out;
     });
-    return output;
+    return JSON.stringify(output);
 }
 
 console.log(groupBeerByBrand(data));

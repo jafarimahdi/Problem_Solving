@@ -15,13 +15,13 @@ function ingredientRatio(data) {
     });
 
     
-    let sortWithRatio = definedRatio.sort((b, a) =>
+    let sortWithRatio = definedRatio.sort((a, b) =>
         a.ratio > b.ratio ? 1 : b.ratio > a.ratio ? -1 : 0
     );
 
     let beersId = sortWithRatio.map((element) => element.id);
 
-    return beersId
+    return JSON.stringify(beersId)
 }
 
 console.log(ingredientRatio(data));

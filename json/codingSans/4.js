@@ -9,7 +9,7 @@ function allergies(choice, data) {
             }
         }
     });
-    return result;
+    return JSON.stringify(result);
 }
 
 console.log(allergies("wheat", data));

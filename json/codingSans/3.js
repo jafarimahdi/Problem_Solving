@@ -30,7 +30,7 @@ function cheapestBrand(data) {
 
     let getCheapestIndex = calculateTheAverage.indexOf(findCheapest);
 
-    return allBrands[getCheapestIndex]; // find the brand by help of index
+    return JSON.stringify(allBrands[getCheapestIndex]); // find the brand by help of index
 }
 
 console.log(cheapestBrand(data));
