@@ -1,27 +1,24 @@
-const data = require("../beers.json");
+const data = require("./beers.json");
 
-// let brands = [...new Set(data.map((item) => item.brand))];
+function groupBeerByBrand(data) {
+    let definedObj = data.reduce((acc, order) => { 
+        return {
+            ...acc,
+            [order.brand]: (acc[order.brand] || []).concat([order.id]),
+        };
+    }, {});
 
-let result = data.reduce((acc, order) => {
-    return {
-        ...acc,
-        [order.brand]: (acc[order.brand] || []).concat([order.id])
-    };
-}, {});
+    let convertToNestedArray = Object.entries(definedObj);
 
-let convertToNestedArray = Object.entries(result);
+    let output = convertToNestedArray.map((element) => {
+        let out = {};
 
-let out = convertToNestedArray.map((element) => {
-    let output = {};
+        out["brand"] = element[0];
+        out["beers"] = element[1];
 
-    output["brand"] = element[0];
-    output["beers"] = element[1];
-
+        return out;
+    });
     return output;
-});
+}
 
-// console.log(result);
-// console.log(convertToNestedArray);
-
-console.log(out);
-
+console.log(groupBeerByBrand(data));

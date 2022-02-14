@@ -1,6 +1,6 @@
-const data = require("../beers.json");
+const data = require("./beers.json");
 
-function customerChoice(choice) {
+function customerChoice(choice, data) {
     let result = [];
 
     for (let item of data) {
@@ -12,4 +12,4 @@ function customerChoice(choice) {
     return result;
 }
 
-console.log(customerChoice("Wheat"));
+console.log(customerChoice("Wheat", data));

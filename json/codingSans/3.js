@@ -1,48 +1,37 @@
 const data = require("./beers.json");
 
-let result = data.reduce((acc, order) => {
-    return {
-        ...acc,
-        [order.brand]: (acc[order.brand] || []).concat([order.price]),
-    };
-}, []);
+function cheapestBrand(data) {
+    let collectBeers = data.reduce((acc, order) => {
+        // collect all the beers by them brand and price
+        return {
+            ...acc,
+            [order.brand]: (acc[order.brand] || []).concat([order.price]),
+        };
+    }, []);
 
-console.log(result);
+    let allBrands = Object.keys(collectBeers); // only brands
+    let beersPrice = Object.values(collectBeers); // only prices
 
-let out = Object.values(result);
-
-// console.log(out);
-
-let hash = [];
-for (let element of out) {
-    let sum = 0;
-    for (let i of element) {
-        sum += Number(i);
+    let calculateTheAverage = []; // average of the prices for each brand
+    for (let element of beersPrice) {
+        let sum = 0;
+        for (let i of element) {
+            sum += Number(i);
+        }
+        calculateTheAverage.push(sum / element.length);
     }
-    hash.push((sum / element.length));
-}
-let isKey = Object.keys(result);
 
-// console.log('the keys:',Object.keys(result));
-// console.log('the value:',hash);
-
-let smallest= hash[0];
-
-for(let i = 0; i < hash.length; i++){
-    if(hash[i]< smallest){
-        smallest = hash[i];
-
+    let findCheapest = calculateTheAverage[0]; // find the cheapest
+    for (let i = 0; i < calculateTheAverage.length; i++) {
+        if (calculateTheAverage[i] < findCheapest) {
+            findCheapest = calculateTheAverage[i];
+        }
     }
+
+    let getCheapestIndex = calculateTheAverage.indexOf(findCheapest);
+
+    return allBrands[getCheapestIndex]; // find the brand by help of index
 }
-let myIndex = hash.indexOf(smallest)
-// console.log(myIndex);
 
-// console.log(isKey[myIndex]);      // + " " for making a string output 
+console.log(cheapestBrand(data));
 
-var done = {};
-isKey.forEach((key, i) => done[key] = hash[i]);
-
-
-
-
-// console.log('COMPLETE', done);

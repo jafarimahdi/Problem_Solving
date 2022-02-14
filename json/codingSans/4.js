@@ -1,6 +1,6 @@
 const data = require("./beers.json");
 
-function customerChoice(choice) {
+function allergies(choice, data) {
     let result = [];
     let out = data.map((element) => {
         for (let i of element.ingredients) {
@@ -12,4 +12,4 @@ function customerChoice(choice) {
     return result;
 }
 
-console.log(customerChoice("wheat"));
+console.log(allergies("wheat", data));
