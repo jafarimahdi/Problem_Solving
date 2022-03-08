@@ -1,6 +1,6 @@
 
 
-build nested Object and defind the key and value   
+build nested Object and defined the key and value   
 
 let result = data.reduce((acc, order) => {
     return {
@@ -22,7 +22,7 @@ let out = convertToNestedArray.map((element) => {
 
 
 
-merge two array to one object 
+>merge two array to one object 
 
 var result = {};
 keys.forEach((key, i) => result[key] = values[i]);
@@ -40,3 +40,4 @@ for(let i = 0; i < hash.length; i++){
 
     }
 }
+
