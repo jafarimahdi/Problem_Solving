@@ -38,5 +38,3 @@ let fifth = new BlogPost('just oneMore', 'jeff jefry', '2019.06.09', 'do it');
 
 myBlog.add(fifth);
 console.log(myBlog);
-
-//  kheyli mohem hast ke constroctur ro estefadeh konid  makhsosn age list dashte bashid 
