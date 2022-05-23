@@ -2,9 +2,12 @@
 
 ## Basic Types
 
-####   Type Annotation:
- learn how to use type annotation to define the static type for variables, function parameters, and return values.
-> 
+#### Type Annotation:
+
+learn how to use type annotation to define the static type for variables, function parameters, and return values.
+
+>
+
     - :number
     - :string
     - :Boolean
@@ -21,45 +24,52 @@
           return `Hi ${name}`;
         };
 
+#### Number:
 
-####   Number:
- learn about the numeric types including floating-point numbers and big integers.
-> 
+learn about the numeric types including floating-point numbers and big integers.
+
+>
+
     let counter: number = 0;
-    let x: number = 100, 
+    let x: number = 100,
     y: number = 200;
 
     let big: bigint = 9007199254740991n;
 
-    
-####   String : 
- String type in TypeScript.
+#### String :
 
-> 
+String type in TypeScript.
+
+>
+
     let firstName: string = 'John';
     let title: string = "Web Developer";
 
-    let description = `This TypeScript string can 
-    span multiple 
+    let description = `This TypeScript string can
+    span multiple
     lines
     `;
-####   Boolean: 
- Boolean type and how to use it effectively.
 
-> 
+#### Boolean:
+
+Boolean type and how to use it effectively.
+
+>
+
     let pending: boolean;
     pending = true;
     // after a while
     // ..
     pending = false;
 
+#### Object Type :
 
-####  Object Type :
 object type that represents - non-primitive values.
 
 [Document](https://www.typescripttutorial.net/typescript-tutorial/typescript-object-type)
 
-> 
+>
+
     let employee: {
     firstName: string;
     lastName: string;
@@ -70,12 +80,14 @@ object type that represents - non-primitive values.
     lastName: 'Doe',
     age: 25,
     jobTitle: 'Web Developer'
-    }; 
+    };
 
-####  Array:
- Array and its operations.
+#### Array:
 
-> 
+Array and its operations.
+
+>
+
     let skills: string[];
 
     skills[0] = "Problem Solving";
@@ -83,31 +95,36 @@ object type that represents - non-primitive values.
 
     skills.push('Software Design');
 
-####  Tuple : 
- A tuple works like an array with some additional considerations:
+#### Tuple :
 
-- The number of elements in the tuple is fixed.
-- The types of elements are known, and need not be the same.
-> 
-    let color: [number, number, number] = [255, 0, 0];
+A tuple works like an array with some additional considerations:
 
-    let skill: [string, number];
-    skill = ['Programming', 5];
+-   The number of elements in the tuple is fixed.
+-   The types of elements are known, and need not be the same.
 
-    The order of values in a tuple is important. If you change the order of values of the skill tuple to [5, "Programming"], you’ll get an error:
+    >
 
-    let skill: [string, number];
-    skill = [5, 'Programming'];
+        let color: [number, number, number] = [255, 0, 0];
 
-    error TS2322: Type 'string' is not assignable to type 'number'.
+        let skill: [string, number];
+        skill = ['Programming', 5];
 
-####  Enum :
-- An enum is a group of named constant values. Enum stands for enumerated type. To define an enum, you follow these steps:
+        The order of values in a tuple is important. If you change the order of values of the skill tuple to [5, "Programming"], you’ll get an error:
 
-    - First, use the enum keyword followed by the name of the enum.
-    - Then, define constant values for the enum.
+        let skill: [string, number];
+        skill = [5, 'Programming'];
 
-> 
+        error TS2322: Type 'string' is not assignable to type 'number'.
+
+#### Enum :
+
+-   An enum is a group of named constant values. Enum stands for enumerated type. To define an enum, you follow these steps:
+
+    -   First, use the enum keyword followed by the name of the enum.
+    -   Then, define constant values for the enum.
+
+>
+
     enum Month { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec };
 
     function isItSummer(month: Month) {
@@ -128,9 +145,11 @@ object type that represents - non-primitive values.
     console.log(isItSummer(Month.Jun)); // true
 
 #### Any Type
+
 The any type allows you to assign a value of any type to a variable:
 
-> 
+>
+
     // json may come from a third-party API
     const json = `{"latitude": 10.11, "longitude":12.12}`;
 
@@ -140,30 +159,37 @@ The any type allows you to assign a value of any type to a variable:
 
     outPut: { latitude: 10.11, longitude: 12.12 }
 
-####  Void type 
+#### Void type
+
 the void type as the return type of functions that do not return a value.
 
-> 
+>
+
     function log(message): void {
     console.log(messsage);
     }
-####   Never Type 
 
-- The never type contains no value.
-- The never type represents the return type of a function that always throws an error or a function that contains an indefinite loop.
+#### Never Type
+
+-   The never type contains no value.
+-   The never type represents the return type of a function that always throws an error or a function that contains an indefinite loop.
+
+    >
+
+        function raiseError(message: string): never {
+            throw new Error(message);
+        }
+
+        function reject() {
+           return raiseError('Rejected');
+        }
+
+#### Union Types
+
+-   The union type allows you to combine multiple types into one type.
+
 >
-    function raiseError(message: string): never {
-        throw new Error(message); 
-    }
 
-    function reject() { 
-       return raiseError('Rejected');
-    }
-
-####  Union Types 
--  The union type allows you to combine multiple types into one type.
-
-> 
     let result: number | string;
     result = 10; // OK
     result = 'Hi'; // also OK
@@ -179,15 +205,18 @@ the void type as the return type of functions that do not return a value.
         }
      throw new Error('Parameters must be numbers or strings');
     }
-####   Type Aliases 
-- aliases allow you to create a new name for an existing type
 
+#### Type Aliases
 
-#### String Literal Types 
-- define a type that accepts only a specified string literal.
-- The string literal types allow you to define a type that accepts only one specified string literal.
+-   aliases allow you to create a new name for an existing type
+
+#### String Literal Types
+
+-   define a type that accepts only a specified string literal.
+-   The string literal types allow you to define a type that accepts only one specified string literal.
 
 >
+
     The following defines a string literal type that accepts a literal string 'click':
 
         let click: 'click';
@@ -199,13 +228,13 @@ the void type as the return type of functions that do not return a value.
     However, when you assign another string literal to the click, the TypeScript compiler will issue an error. For example:
 
         click = 'dblclick'; // compiler error
-    
+
     Error:
     Type '"dblclick"' is not assignable to type '"click"'.
 
+#### Type Inference
 
-####  Type Inference 
-- where and how TypeScript infers types of variables.
+-   where and how TypeScript infers types of variables.
 
 ## Control Flow Statements
 
