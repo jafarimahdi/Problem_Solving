@@ -1,6 +1,6 @@
-## TypeScript
+# TypeScript
 
-### Basic Types
+## Basic Types
 
 ####   Type Annotation:
  learn how to use type annotation to define the static type for variables, function parameters, and return values.
@@ -33,7 +33,7 @@
 
     
 ####   String : 
- show you how to use the string type in TypeScript.
+ String type in TypeScript.
 
 > 
     let firstName: string = 'John';
@@ -44,7 +44,7 @@
     lines
     `;
 ####   Boolean: 
- guide you on the boolean type and how to use it effectively.
+ Boolean type and how to use it effectively.
 
 > 
     let pending: boolean;
@@ -55,7 +55,7 @@
 
 
 ####  Object Type :
- introduce you to the object type that represents - non-primitive values.
+object type that represents - non-primitive values.
 
 [Document](https://www.typescripttutorial.net/typescript-tutorial/typescript-object-type)
 
@@ -73,7 +73,7 @@
     }; 
 
 ####  Array:
- show you how to use an array and its operations.
+ Array and its operations.
 
 > 
     let skills: string[];
@@ -89,17 +89,17 @@
 - The number of elements in the tuple is fixed.
 - The types of elements are known, and need not be the same.
 > 
-        let color: [number, number, number] = [255, 0, 0];
+    let color: [number, number, number] = [255, 0, 0];
 
-        let skill: [string, number];
-        skill = ['Programming', 5];
+    let skill: [string, number];
+    skill = ['Programming', 5];
 
-        The order of values in a tuple is important. If you change the order of values of the skill tuple to [5, "Programming"], you’ll get an error:
+    The order of values in a tuple is important. If you change the order of values of the skill tuple to [5, "Programming"], you’ll get an error:
 
-        let skill: [string, number];
-        skill = [5, 'Programming'];
+    let skill: [string, number];
+    skill = [5, 'Programming'];
 
-        error TS2322: Type 'string' is not assignable to type 'number'.
+    error TS2322: Type 'string' is not assignable to type 'number'.
 
 ####  Enum :
 - An enum is a group of named constant values. Enum stands for enumerated type. To define an enum, you follow these steps:
@@ -161,14 +161,53 @@ the void type as the return type of functions that do not return a value.
     }
 
 ####  Union Types 
-guide you on how to store a value of one or several types in a variable with the union type.
+-  The union type allows you to combine multiple types into one type.
+
+> 
+    let result: number | string;
+    result = 10; // OK
+    result = 'Hi'; // also OK
+    result = false; // a boolean value, not OK
 
 
--   Type Aliases – show you how to define new names for types using type aliases.
--   String Literal Types – learn how to define a type that accepts only a specified string literal.
--   Type Inference – explain where and how TypeScript infers types of variables.
+    function add(a: number | string, b: number | string) {
+        if (typeof a === 'number' && typeof b === 'number') {
+         return a + b;
+        }
+        if (typeof a === 'string' && typeof b === 'string') {
+         return a.concat(b);
+        }
+     throw new Error('Parameters must be numbers or strings');
+    }
+####   Type Aliases 
+- aliases allow you to create a new name for an existing type
 
-### Control Flow Statements
+
+#### String Literal Types 
+- define a type that accepts only a specified string literal.
+- The string literal types allow you to define a type that accepts only one specified string literal.
+
+>
+    The following defines a string literal type that accepts a literal string 'click':
+
+        let click: 'click';
+
+    The click is a string literal type that accepts only the string literal 'click'. If you assign the literal string click to the click, it will be valid:
+
+        click = 'click'; // valid
+
+    However, when you assign another string literal to the click, the TypeScript compiler will issue an error. For example:
+
+        click = 'dblclick'; // compiler error
+    
+    Error:
+    Type '"dblclick"' is not assignable to type '"click"'.
+
+
+####  Type Inference 
+- where and how TypeScript infers types of variables.
+
+## Control Flow Statements
 
 -   if…else – learn how to execute code based on a condition.
 -   switch..case – show you how to use the switch statement to allow a number of possible execution paths.
