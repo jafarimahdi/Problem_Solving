@@ -2,18 +2,119 @@
 
 ### Basic Types
 
--   Type Annotation –
-    learn how to use type annotation to define the static type for variables, function parameters, and return values.
+####   Type Annotation:
+ learn how to use type annotation to define the static type for variables, function parameters, and return values.
+> 
+    - :number
+    - :string
+    - :Boolean
+    - :string [ ]
+    - object {
+        name: string;
+        age: number ;
+    }
+    - Function arguments & return types
 
--   Number
-    learn about the numeric types including floating-point numbers and big integers.
--   String – show you how to use the string type in TypeScript.
--   Boolean – guide you on the boolean type and how to use it effectively.
--   Object Type – introduce you to the object type that represents - non-primitive values.
--   Array – show you how to use an array and its operations.
--   Tuple – learn how to store a fixed number of elements with known types in a tuple.
--   Enum – show you how to define a group of named constants by using enum type.
--   Any Type – learn how to use the any type to store a value of any type in a variable.
+        let greeting : (name: string) => string;
+
+        greeting = function (name: string) {
+          return `Hi ${name}`;
+        };
+
+
+####   Number:
+ learn about the numeric types including floating-point numbers and big integers.
+> 
+    let counter: number = 0;
+    let x: number = 100, 
+    y: number = 200;
+
+    let big: bigint = 9007199254740991n;
+
+    
+####   String : 
+ show you how to use the string type in TypeScript.
+
+> 
+    let firstName: string = 'John';
+    let title: string = "Web Developer";
+
+    let description = `This TypeScript string can 
+    span multiple 
+    lines
+    `;
+####   Boolean: 
+ guide you on the boolean type and how to use it effectively.
+
+> 
+    let pending: boolean;
+    pending = true;
+    // after a while
+    // ..
+    pending = false;
+
+
+####  Object Type :
+ introduce you to the object type that represents - non-primitive values.
+
+[Document](https://www.typescripttutorial.net/typescript-tutorial/typescript-object-type)
+
+> 
+    let employee: {
+    firstName: string;
+    lastName: string;
+    age: number;
+    jobTitle: string;
+    } = {
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 25,
+    jobTitle: 'Web Developer'
+    }; 
+
+####  Array:
+ show you how to use an array and its operations.
+
+> 
+    let skills: string[];
+
+    skills[0] = "Problem Solving";
+    skills[1] = "Programming";
+
+    skills.push('Software Design');
+
+####  Tuple : 
+ A tuple works like an array with some additional considerations:
+
+- The number of elements in the tuple is fixed.
+- The types of elements are known, and need not be the same.
+> 
+        let color: [number, number, number] = [255, 0, 0];
+
+        let skill: [string, number];
+        skill = ['Programming', 5];
+
+        The order of values in a tuple is important. If you change the order of values of the skill tuple to [5, "Programming"], you’ll get an error:
+
+        let skill: [string, number];
+        skill = [5, 'Programming'];
+
+        error TS2322: Type 'string' is not assignable to type 'number'.
+
+####  Enum :
+ show you how to define a group of named constants by using enum type.
+
+
+-   Any Type: An enum is a group of named constant values. Enum stands for enumerated type. To define an enum, you follow these steps:
+
+    - First, use the enum keyword followed by the name of the enum.
+    - Then, define constant values for the enum.
+
+> 
+    
+
+
+
 -   Void type – show you how to use the void type as the return type of - functions which do not return any value.
 -   Never Type – learn how to use the never type that contains no value.
 -   Union Types – guide you on how to store a value of one or several types in a variable with the union type.
