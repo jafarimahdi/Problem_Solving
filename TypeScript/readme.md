@@ -2,7 +2,7 @@
 
 ## Basic Types
 
-#### Type Annotation:
+### Type Annotation:
 
 learn how to use type annotation to define the static type for variables, function parameters, and return values.
 
@@ -24,7 +24,7 @@ learn how to use type annotation to define the static type for variables, functi
           return `Hi ${name}`;
         };
 
-#### Number:
+### Number:
 
 learn about the numeric types including floating-point numbers and big integers.
 
@@ -36,7 +36,7 @@ learn about the numeric types including floating-point numbers and big integers.
 
     let big: bigint = 9007199254740991n;
 
-#### String :
+### String :
 
 String type in TypeScript.
 
@@ -50,7 +50,7 @@ String type in TypeScript.
     lines
     `;
 
-#### Boolean:
+### Boolean:
 
 Boolean type and how to use it effectively.
 
@@ -62,7 +62,7 @@ Boolean type and how to use it effectively.
     // ..
     pending = false;
 
-#### Object Type :
+### Object Type :
 
 object type that represents - non-primitive values.
 
@@ -82,7 +82,7 @@ object type that represents - non-primitive values.
     jobTitle: 'Web Developer'
     };
 
-#### Array:
+### Array:
 
 Array and its operations.
 
@@ -95,7 +95,7 @@ Array and its operations.
 
     skills.push('Software Design');
 
-#### Tuple :
+### Tuple :
 
 A tuple works like an array with some additional considerations:
 
@@ -116,7 +116,7 @@ A tuple works like an array with some additional considerations:
 
         error TS2322: Type 'string' is not assignable to type 'number'.
 
-#### Enum :
+### Enum :
 
 -   An enum is a group of named constant values. Enum stands for enumerated type. To define an enum, you follow these steps:
 
@@ -144,7 +144,7 @@ A tuple works like an array with some additional considerations:
 
     console.log(isItSummer(Month.Jun)); // true
 
-#### Any Type
+### Any Type
 
 The any type allows you to assign a value of any type to a variable:
 
@@ -159,7 +159,7 @@ The any type allows you to assign a value of any type to a variable:
 
     outPut: { latitude: 10.11, longitude: 12.12 }
 
-#### Void type
+### Void type
 
 the void type as the return type of functions that do not return a value.
 
@@ -169,7 +169,7 @@ the void type as the return type of functions that do not return a value.
     console.log(messsage);
     }
 
-#### Never Type
+### Never Type
 
 -   The never type contains no value.
 -   The never type represents the return type of a function that always throws an error or a function that contains an indefinite loop.
@@ -184,7 +184,7 @@ the void type as the return type of functions that do not return a value.
            return raiseError('Rejected');
         }
 
-#### Union Types
+### Union Types
 
 -   The union type allows you to combine multiple types into one type.
 
@@ -206,11 +206,11 @@ the void type as the return type of functions that do not return a value.
      throw new Error('Parameters must be numbers or strings');
     }
 
-#### Type Aliases
+### Type Aliases
 
 -   aliases allow you to create a new name for an existing type
 
-#### String Literal Types
+### String Literal Types
 
 -   define a type that accepts only a specified string literal.
 -   The string literal types allow you to define a type that accepts only one specified string literal.
@@ -232,30 +232,57 @@ the void type as the return type of functions that do not return a value.
     Error:
     Type '"dblclick"' is not assignable to type '"click"'.
 
-#### Type Inference
+### Type Inference
 
--   where and how TypeScript infers types of variables.
+- TypeScript infers types of variables.
+
+
 
 ## Control Flow Statements
 
--   if…else – learn how to execute code based on a condition.
--   switch..case – show you how to use the switch statement to allow a number of possible execution paths.
--   for – create a loop that executes a specified number of times.
--   while – create a pretest loop that executes as long as a condition is true.
--   do…while – learn how to create a posttest loop that executes until a condition is false.
--   break – show you how to use the break statement to terminate a loop or a switch.
--   continue – learn how to skip to the end of a loop and continue the next iteration
+###  if…else  
+- code based on a condition.
 
-### Functions
+###  switch..case 
+- switch statement to allow a number of possible execution paths.
 
--   Functions – learn how to declare a function that uses type annotation in TypeScript.
--   Function types – guide you on how to use function types to define types for functions.
--   Optional Parameters – show you how to define functions with optional parameters.
--   Default Parameters – introduce you to default parameters.
--   Rest Parameters – use the rest parameters to handle an infinite number of arguments of a function.
--   Function overloadings – learn how to establish between parameter types and results of a function via function overloadings.
+###  for 
+– a loop that executes a specified number of times.
 
-### Classes
+###  while 
+– a pretest loop that executes as long as a condition is true.
+
+###  do…while 
+– learn how to create a posttest loop that executes until a condition is false.
+
+###  break 
+– show you how to use the break statement to terminate a loop or a switch.
+
+###  continue 
+– learn how to skip to the end of a loop and continue the next iteration
+
+
+##  Functions
+
+###  Functions 
+- declare a function that uses type annotation in TypeScript.
+
+###  Function types 
+- guide you on how to use function types to define types for functions.
+
+###  Optional Parameters 
+- show you how to define functions with optional parameters.
+
+###  Default Parameters 
+- introduce you to default parameters.
+
+###  Rest Parameters 
+- use the rest parameters to handle an infinite number of arguments of a function.
+
+###  Function overloadings 
+- learn how to establish between parameter types and results of a function via function overloadings.
+
+## Classes
 
 -   Classes – learn how to construct a class in TypeScript.
 -   Access Modifiers – introduce you to private, protected, and public access modifiers.
