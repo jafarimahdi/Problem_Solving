@@ -102,22 +102,68 @@
         error TS2322: Type 'string' is not assignable to type 'number'.
 
 ####  Enum :
- show you how to define a group of named constants by using enum type.
-
-
--   Any Type: An enum is a group of named constant values. Enum stands for enumerated type. To define an enum, you follow these steps:
+- An enum is a group of named constant values. Enum stands for enumerated type. To define an enum, you follow these steps:
 
     - First, use the enum keyword followed by the name of the enum.
     - Then, define constant values for the enum.
 
 > 
-    
+    enum Month { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec };
+
+    function isItSummer(month: Month) {
+    let isSummer: boolean;
+    switch (month) {
+        case Month.Jun:
+        case Month.Jul:
+        case Month.Aug:
+            isSummer = true;
+            break;
+        default:
+            isSummer = false;
+            break;
+    }
+    return isSummer;
+    }
+
+    console.log(isItSummer(Month.Jun)); // true
+
+#### Any Type
+The any type allows you to assign a value of any type to a variable:
+
+> 
+    // json may come from a third-party API
+    const json = `{"latitude": 10.11, "longitude":12.12}`;
+
+    // parse JSON to find location
+    const currentLocation = JSON.parse(json);
+    console.log(currentLocation);
+
+    outPut: { latitude: 10.11, longitude: 12.12 }
+
+####  Void type 
+the void type as the return type of functions that do not return a value.
+
+> 
+    function log(message): void {
+    console.log(messsage);
+    }
+####   Never Type 
+
+- The never type contains no value.
+- The never type represents the return type of a function that always throws an error or a function that contains an indefinite loop.
+>
+    function raiseError(message: string): never {
+        throw new Error(message); 
+    }
+
+    function reject() { 
+       return raiseError('Rejected');
+    }
+
+####  Union Types 
+guide you on how to store a value of one or several types in a variable with the union type.
 
 
-
--   Void type – show you how to use the void type as the return type of - functions which do not return any value.
--   Never Type – learn how to use the never type that contains no value.
--   Union Types – guide you on how to store a value of one or several types in a variable with the union type.
 -   Type Aliases – show you how to define new names for types using type aliases.
 -   String Literal Types – learn how to define a type that accepts only a specified string literal.
 -   Type Inference – explain where and how TypeScript infers types of variables.
