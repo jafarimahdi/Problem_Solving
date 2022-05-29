@@ -1,6 +1,6 @@
 # TypeScript
 
-## Basic Types
+# Basic Types
 
 ### Type Annotation:
 
@@ -234,14 +234,21 @@ the void type as the return type of functions that do not return a value.
 
 ### Type Inference
 
-- TypeScript infers types of variables.
+- Type inference describes where and how TypeScript infers types when you don’t explicitly annotate them..
+>
+    Type inference occurs when you initialize variables, set parameter default values, and determine function return types.
+
+    TypeScript uses the best common type algorithm to select the best candidate types that are compatible with all variables.
+
+    TypeScript also uses contextual typing to infer types of variables based on the locations of the variables.
 
 
-
-## Control Flow Statements
+# Control Flow Statements
 
 ###  if…else  
-- code based on a condition.
+- Use if statement to execute code based on a condition.
+- Use the else branch if you want to execute code when the condition is false. It’s good practice to use the ternary operator ?: instead of a simple if…else statement.
+- Use if else if...else statement to execute code based on multiple conditions.
 
 ###  switch..case 
 - switch statement to allow a number of possible execution paths.
@@ -250,39 +257,39 @@ the void type as the return type of functions that do not return a value.
 – a loop that executes a specified number of times.
 
 ###  while 
-– a pretest loop that executes as long as a condition is true.
+- a pretest loop that executes as long as a condition is true.
 
 ###  do…while 
-– learn how to create a posttest loop that executes until a condition is false.
+- create a posttest loop that executes until a condition is false.
 
 ###  break 
-– show you how to use the break statement to terminate a loop or a switch.
+- show you how to use the break statement to terminate a loop or a switch.
 
 ###  continue 
-– learn how to skip to the end of a loop and continue the next iteration
+- skip to the end of a loop and continue the next iteration
 
 
-##  Functions
+#  Functions
 
 ###  Functions 
 - declare a function that uses type annotation in TypeScript.
 
 ###  Function types 
-- guide you on how to use function types to define types for functions.
+- how to use function types to define types for functions.
 
 ###  Optional Parameters 
-- show you how to define functions with optional parameters.
+- how to define functions with optional parameters.
 
 ###  Default Parameters 
-- introduce you to default parameters.
+- default parameters.
 
 ###  Rest Parameters 
 - use the rest parameters to handle an infinite number of arguments of a function.
 
 ###  Function overloadings 
-- learn how to establish between parameter types and results of a function via function overloadings.
+- how to establish between parameter types and results of a function via function overloadings.
 
-## Classes
+# Classes
 
 -   Classes – learn how to construct a class in TypeScript.
 -   Access Modifiers – introduce you to private, protected, and public access modifiers.
@@ -292,29 +299,29 @@ the void type as the return type of functions that do not return a value.
 -   Static methods & properties – define static methods and variables shared by all instances of a class.
 -   Abstract Classes – explain the abstract classes that define some common behaviors
 
-### Interfaces
+# Interfaces
 
 -   Interfaces – introduce you to interfaces and how to use them for creating contracts within your code.
 -   Extending Interfaces – learn how to extend an interface to create a combination of interfaces.
 
-### Advanced Types
+# Advanced Types
 
 -   Intersection Types – show you how to create a new type that has all features of existing types.
 -   Type Guards – learn how to use type guards to narrow the type of a variable within a conditional block.
 -   Type Casting – show you how to use type casting to convert a variable of one type to another.
 -   Type Assertions – guide you on how to use a type assertion to tell the compiler to treat a value as a specified type.
 
-### Generics
+# Generics
 
 -   Introduction to TypeScript Generics – learn how to use TypeScript generics to develop generic functions.
 -   Generic constraints – show you how to add constraints to the generic types.
 -   Generic Classes – guide you on how to develop generic classes.
 -   Generic Interfaces – walk you through the steps for creating generic interfaces.
 
-### Modules
+# Modules
 
 -   TypeScript Modules – introduce you to modules in TypeScript and how to use them in other modules.
 
-### TypeScript in Node.js
+# TypeScript in Node.js
 
 -   Node.js TypeScript – how to set up a development environment for using TypeScript in the Node.js project.
