@@ -5,9 +5,7 @@
 ### Type Annotation:
 
 learn how to use type annotation to define the static type for variables, function parameters, and return values.
-
->
-
+```typescript
     - :number
     - :string
     - :Boolean
@@ -23,25 +21,21 @@ learn how to use type annotation to define the static type for variables, functi
         greeting = function (name: string) {
           return `Hi ${name}`;
         };
-
+```
 ### Number:
 
 learn about the numeric types including floating-point numbers and big integers.
-
->
-
+```typescript
     let counter: number = 0;
     let x: number = 100,
     y: number = 200;
 
     let big: bigint = 9007199254740991n;
-
+```
 ### String :
 
 String type in TypeScript.
-
->
-
+```typescript
     let firstName: string = 'John';
     let title: string = "Web Developer";
 
@@ -49,26 +43,26 @@ String type in TypeScript.
     span multiple
     lines
     `;
-
+```
 ### Boolean:
 
 Boolean type and how to use it effectively.
 
->
+```typescript
 
     let pending: boolean;
     pending = true;
     // after a while
     // ..
     pending = false;
-
+```
 ### Object Type :
 
 object type that represents - non-primitive values.
 
 [Document](https://www.typescripttutorial.net/typescript-tutorial/typescript-object-type)
 
->
+```typescript
 
     let employee: {
     firstName: string;
@@ -81,28 +75,25 @@ object type that represents - non-primitive values.
     age: 25,
     jobTitle: 'Web Developer'
     };
-
+```
 ### Array:
 
 Array and its operations.
-
->
-
+```typescript
     let skills: string[];
 
     skills[0] = "Problem Solving";
     skills[1] = "Programming";
 
     skills.push('Software Design');
-
+```
 ### Tuple :
 
 A tuple works like an array with some additional considerations:
 
 -   The number of elements in the tuple is fixed.
 -   The types of elements are known, and need not be the same.
-
-    >
+```typescript
 
         let color: [number, number, number] = [255, 0, 0];
 
@@ -115,7 +106,7 @@ A tuple works like an array with some additional considerations:
         skill = [5, 'Programming'];
 
         error TS2322: Type 'string' is not assignable to type 'number'.
-
+```
 ### Enum :
 
 -   An enum is a group of named constant values. Enum stands for enumerated type. To define an enum, you follow these steps:
@@ -123,7 +114,7 @@ A tuple works like an array with some additional considerations:
     -   First, use the enum keyword followed by the name of the enum.
     -   Then, define constant values for the enum.
 
->
+```typescript
 
     enum Month { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec };
 
@@ -143,12 +134,12 @@ A tuple works like an array with some additional considerations:
     }
 
     console.log(isItSummer(Month.Jun)); // true
-
+```
 ### Any Type
 
 The any type allows you to assign a value of any type to a variable:
 
->
+```typescript
 
     // json may come from a third-party API
     const json = `{"latitude": 10.11, "longitude":12.12}`;
@@ -157,24 +148,21 @@ The any type allows you to assign a value of any type to a variable:
     const currentLocation = JSON.parse(json);
     console.log(currentLocation);
 
-    outPut: { latitude: 10.11, longitude: 12.12 }
-
+   // outPut: { latitude: 10.11, longitude: 12.12 }
+```
 ### Void type
 
 the void type as the return type of functions that do not return a value.
-
->
-
+```Typescript
     function log(message): void {
     console.log(messsage);
     }
-
+```
 ### Never Type
 
 -   The never type contains no value.
 -   The never type represents the return type of a function that always throws an error or a function that contains an indefinite loop.
-
-    >
+```Typescript
 
         function raiseError(message: string): never {
             throw new Error(message);
@@ -183,12 +171,12 @@ the void type as the return type of functions that do not return a value.
         function reject() {
            return raiseError('Rejected');
         }
-
+```
 ### Union Types
 
 -   The union type allows you to combine multiple types into one type.
 
->
+```Typescript
 
     let result: number | string;
     result = 10; // OK
@@ -206,6 +194,8 @@ the void type as the return type of functions that do not return a value.
      throw new Error('Parameters must be numbers or strings');
     }
 
+```
+
 ### Type Aliases
 
 -   aliases allow you to create a new name for an existing type
@@ -215,23 +205,23 @@ the void type as the return type of functions that do not return a value.
 -   define a type that accepts only a specified string literal.
 -   The string literal types allow you to define a type that accepts only one specified string literal.
 
->
+```typescript
 
-    The following defines a string literal type that accepts a literal string 'click':
+   // The following defines a string literal type that accepts a literal string 'click':
 
         let click: 'click';
 
-    The click is a string literal type that accepts only the string literal 'click'. If you assign the literal string click to the click, it will be valid:
+  //  The click is a string literal type that accepts only the string literal 'click'. If you assign the literal string click to the click, it will be valid:
 
         click = 'click'; // valid
 
-    However, when you assign another string literal to the click, the TypeScript compiler will issue an error. For example:
+   // However, when you assign another string literal to the click, the TypeScript compiler will issue an error. For example:
 
         click = 'dblclick'; // compiler error
 
     Error:
     Type '"dblclick"' is not assignable to type '"click"'.
-
+```
 ### Type Inference
 
 - Type inference describes where and how TypeScript infers types when you don’t explicitly annotate them..
@@ -254,7 +244,7 @@ the void type as the return type of functions that do not return a value.
 - switch statement to allow a number of possible execution paths.
 
 ###  for 
-– a loop that executes a specified number of times.
+- a loop that executes a specified number of times.
 
 ###  while 
 - a pretest loop that executes as long as a condition is true.
@@ -274,18 +264,103 @@ the void type as the return type of functions that do not return a value.
 ###  Functions 
 - declare a function that uses type annotation in TypeScript.
 
+``` Typescript 
+    function name(parameter: type, parameter:type,...): returnType {
+   // do something
+    }
+
+// If a function does not return a value, you can use the void type as the return type. The void keyword indicates that the function doesn’t return any value.
+    function echo(message: string): void {
+     console.log(message.toUpperCase());
+    }
+
+```
+
 ###  Function types 
-- how to use function types to define types for functions.
+-  function type has two parts: parameters and return type. When declaring a function type, you need to specify both parts
+
+```typescript
+  //  (parameter: type, parameter:type,...) => type
+
+    let add: (x: number, y: number) => number;
+
+    add = function (x: number, y: number) {
+    return x + y;
+    };
+
+//  you can declare a variable and assign a function to a variable like this:
+
+    let add: (a: number, b: number) => number =
+    function (x: number, y: number) {
+        return x + y;
+    };
+
+    // Inferring function types
+
+    let add = function (a: number, b: number):number {
+        return a + b;
+    };
+
+    let result = add(4,7);
+```
 
 ###  Optional Parameters 
-- how to define functions with optional parameters.
+- Use the parameter?: type syntax to make a parameter optional.
+- the optional parameter must be always last parameter
+
+
+```typescript
+    function multiply(a: number, b: number, c?: number): number {
+
+    if (typeof c !== 'undefined') {
+        return a * b * c;
+    }
+    return a * b;
+}
+// you can Use the expression typeof(parameter) !== 'undefined' to check if the parameter has been initialized.
+```
 
 ###  Default Parameters 
-- default parameters.
+- Use default parameter syntax parameter:=defaultValue if you want to set the default initialized value for the parameter.
+- Default parameters are optional.
+- To use the default initialized value of a parameter, you omit the argument when calling the function or pass the undefined into the function.
+
+```typescript
+function applyDiscount(price: number, discount: number = 0.05): number {
+    return price * (1 - discount);
+}
+
+console.log(applyDiscount(100)); // 95
+
+// Notice that you cannot include default parameters in function type definitions. The following code will result in an error:
+
+let promotion: (price: number, discount: number = 0.05) => number;
+
+// error TS2371: A parameter initializer is only allowed in a function or constructor implementation.
+```
 
 ###  Rest Parameters 
-- use the rest parameters to handle an infinite number of arguments of a function.
+- A rest parameter allows you a function to accept zero or more arguments of the specified type. In TypeScript, rest parameters follow these rules:
 
+    - A function has only one rest parameter.
+    - The rest parameter appears last in the parameter list.
+    - The type of the rest parameter is an array type.
+
+```typescript
+function fn(...rest: type[]) {
+   //...
+}
+
+
+function getTotal(...numbers: number[]): number {
+    let total = 0;
+    numbers.forEach((num) => total += num);
+    return total;
+}
+console.log(getTotal()); // 0
+console.log(getTotal(10, 20)); // 30
+console.log(getTotal(10, 20, 30)); // 60
+```
 ###  Function overloadings 
 - how to establish between parameter types and results of a function via function overloadings.
 
