@@ -269,7 +269,8 @@ the void type as the return type of functions that do not return a value.
    // do something
     }
 
-// If a function does not return a value, you can use the void type as the return type. The void keyword indicates that the function doesn’t return any value.
+// If a function does not return a value, you can use the void type as the return type. 
+//The void keyword indicates that the function doesn’t return any value.
     function echo(message: string): void {
      console.log(message.toUpperCase());
     }
@@ -332,7 +333,8 @@ function applyDiscount(price: number, discount: number = 0.05): number {
 
 console.log(applyDiscount(100)); // 95
 
-// Notice that you cannot include default parameters in function type definitions. The following code will result in an error:
+// Notice that you cannot include default parameters in function type definitions. 
+//The following code will result in an error:
 
 let promotion: (price: number, discount: number = 0.05) => number;
 
@@ -361,14 +363,129 @@ console.log(getTotal()); // 0
 console.log(getTotal(10, 20)); // 30
 console.log(getTotal(10, 20, 30)); // 60
 ```
-###  Function overloadings 
-- how to establish between parameter types and results of a function via function overloadings.
+### [Function Overloadings](https://www.typescripttutorial.net/typescript-tutorial/typescript-function-overloadings/)
 
+- TypeScript function overloadings allow you to describe the relationship between parameter types and results of a function.
+
+
+```typescript
+function add(a: number, b: number): number;
+function add(a: string, b: string): string;
+function add(a: any, b: any): any {
+   return a + b;
+}
+//When a function is a property of a class, it is called a method. TypeScript also supports method overloading.
+
+class Counter {
+    private current: number = 0;
+    count(): number;
+    count(target: number): number[];
+    count(target?: number): number | number[] {
+        if (target) {
+            let values = [];
+            for (let start = this.current; start <= target; start++) {
+                values.push(start);
+            }
+            this.current = target;
+            return values;
+        }
+        return ++this.current;
+    }
+}
+
+//The count() function can return a number or an array depending on the number of argument 
+//that you pass into it:
+
+let counter = new Counter();
+
+console.log(counter.count()); // return a number
+console.log(counter.count(20)); // return an array
+
+```
 # Classes
 
--   Classes – learn how to construct a class in TypeScript.
--   Access Modifiers – introduce you to private, protected, and public access modifiers.
--   The readonly Modifier – learn how to use the readonly modifier to make class properties immutable.
+-   Classes 
+    - Use class keyword to define a class in TypeScript.
+    - TypeScript leverages the ES6 class syntax and adds type annotations to make the class more robust. 
+
+-   [Access Modifiers ](https://www.typescripttutorial.net/typescript-tutorial/typescript-access-modifiers/)
+
+    - Access modifiers change the visibility of the properties and methods of a class. TypeScript provides three access modifiers:
+        - Private: The private modifier allows access within the same class.
+        - Protected: The protected modifier allows access within the same class and subclasses.
+        - Public: The public modifier allows access from any location.
+
+```typescript
+        // private 
+class Person {
+    private ssn: string;
+    private firstName: string;
+    private lastName: string;
+
+    constructor(ssn: string, firstName: string, lastName: string) {
+        this.ssn = ssn;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    getFullName(): string {
+        return `${this.firstName} ${this.lastName}`; 
+    }
+}
+// The following attempts to access the ssn property outside the class:
+
+let person = new Person('153-07-3130', 'John', 'Doe');
+console.log(person.ssn); // compile error
+
+```
+
+```typescript
+            // Public 
+// The public modifier allows class properties and methods to be accessible from all locations. 
+//If you don’t specify any access modifier for properties and methods, they will take the public modifier by default.
+
+class Person {
+    // ...
+    public getFullName(): string {
+        return `${this.firstName} ${this.lastName}`; 
+    }
+    // ...
+}
+```
+```typescript
+        //    Protected
+// The ssn property now is protected. It will be accessible within the Person class and in any class 
+// that inherits from the Person class. You’ll learn more about inheritance here.
+
+class Person {
+
+    protected ssn: string;
+    
+    // other code
+}
+
+// To make the code shorter, TypeScript allows you to both declare properties and initialize them in the constructor like this:
+
+class Person {
+    constructor(protected ssn: string, private firstName: string, private lastName: string) {
+        this.ssn = ssn;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    getFullName(): string {
+        return `${this.firstName} ${this.lastName}`;
+    }
+}
+
+
+```
+-   The readonly Modifier 
+
+    - how to use the readonly modifier to make class properties immutable.
+
+
+
 -   Getters & Setters – show you how to use the getters and setters to control the access of the class properties.
 -   Inheritance – learn how to use the inheritance to reuse the functionality of another class.
 -   Static methods & properties – define static methods and variables shared by all instances of a class.
