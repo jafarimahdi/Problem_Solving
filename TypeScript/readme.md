@@ -583,14 +583,97 @@ console.log(employee.describe());
         - ` Private Static Properties`
         - ` Static Methods`
 
--   Abstract Classes 
-    - the abstract classes that define some common behaviors
+-   [Abstract Classes](https://www.typescripttutorial.net/typescript-tutorial/typescript-abstract-classes/)
+    - Abstract classes cannot be instantiated.(you can't make object directly from this class)
+    - An Abstract class has at least one abstract method.
+    - To use an abstract class, you need to `inherit` it and provide the implementation for the abstract methods.
 
 
 # Interfaces
 
--   Interfaces – introduce you to interfaces and how to use them for creating contracts within your code.
--   Extending Interfaces – learn how to extend an interface to create a combination of interfaces.
+-   [Interfaces](https://www.typescripttutorial.net/typescript-tutorial/typescript-interface/)
+    - how to use Interfaces for creating contracts within your code.
+        - `File` : you can add object if it have the same variable the same interface has provided 
+            - optional properties `?`
+            - readOnly properties: `readOnly`
+        - `Function`
+        - `Class`
+
+```typescript
+        // File 
+interface Person {
+    firstName: string;
+    lastName: string;
+}
+        
+function getFullName(person: Person) {
+    return `${person.firstName} ${person.lastName}`;
+}
+
+let john = {
+    firstName: 'John',
+    lastName: 'Doe'
+};
+
+console.log(getFullName(john));
+
+                -----------------------------
+
+        // Optional properties
+interface Person {
+    firstName: string;
+    middleName?: string;
+    lastName: string;
+}
+
+        // how to use 
+function getFullName(person: Person) {
+    if (person.middleName) {
+        return `${person.firstName} ${person.middleName} ${person.lastName}`;
+    }
+    return `${person.firstName} ${person.lastName}`;
+}
+        ------------------------
+            // ReadOnly 
+
+interface Person {
+    readonly ssn: string;
+    firstName: string;
+    lastName: string;    
+}
+
+let person: Person;
+person = {
+    ssn: '171-28-0926',
+    firstName: 'John',
+    lastName: 'Doe'
+}
+
+
+person.ssn = '171-28-0000';
+//  error TS2540: Cannot assign to 'ssn' because it is a read-only property.
+
+```
+```typescript
+        // Function 
+interface StringFormat {
+    (str: string, isUpper: boolean): string
+}
+
+let format: StringFormat;
+
+format = function (str: string, isUpper: boolean) {
+    return isUpper ? str.toLocaleUpperCase() : str.toLocaleLowerCase();
+};
+
+console.log(format('hi', true));
+
+// output
+HI
+```
+
+-   Extending Interfaces 
+    - how to extend an interface to create a combination of interfaces.
 
 # Advanced Types
 
