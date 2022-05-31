@@ -575,8 +575,17 @@ console.log(employee.describe());
 ```
 
 
--   Static methods & properties – define static methods and variables shared by all instances of a class.
--   Abstract Classes – explain the abstract classes that define some common behaviors
+-   [Static Properties & Methods ](https://www.typescripttutorial.net/typescript-tutorial/typescript-static-methods-and-properties/)
+
+    - Static properties and methods are shared by all instances of a class.
+    - Use the static keyword before a property or a method to make it static.
+        - `Static Properties `
+        - ` Private Static Properties`
+        - ` Static Methods`
+
+-   Abstract Classes 
+    - the abstract classes that define some common behaviors
+
 
 # Interfaces
 
