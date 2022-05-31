@@ -405,16 +405,16 @@ console.log(counter.count(20)); // return an array
 # Classes
 
 -   Classes 
-    - Use class keyword to define a class in TypeScript.
+    - Use `class` keyword to define a class in TypeScript.
     - TypeScript leverages the ES6 class syntax and adds type annotations to make the class more robust. 
 
--   [Access Modifiers ](https://www.typescripttutorial.net/typescript-tutorial/typescript-access-modifiers/)
+-   [Access Modifiers ](https://www.typescripttutorial.net/typescript-tutorial/typescript-access-modifiers/)for properties 
 
     - Access modifiers change the visibility of the properties and methods of a class. TypeScript provides three access modifiers:
-        - Private: The private modifier allows access within the same class.
-        - Protected: The protected modifier allows access within the same class and subclasses.
-        - Public: The public modifier allows access from any location.
-
+        - `Private:` The private modifier allows access within the same class.
+        - `Protected:` The protected modifier allows access within the same class and subclasses.
+        - `Public:` The public modifier allows access from any location.
+        -  `ReadOnly:` readonly modifier makes class properties immutable.
 ```typescript
         // private 
 class Person {
@@ -477,17 +477,104 @@ class Person {
         return `${this.firstName} ${this.lastName}`;
     }
 }
+```
+```typescript
+            // ReadOnly
+// the readonly access modifier to mark a class property as immutable.
+// A readonly property must be initialized as a part of the declaration or in the constructor of the same class.
 
+class Person {
+    readonly birthDate: Date;
+
+    constructor(birthDate: Date) {
+        this.birthDate = birthDate;
+    }
+}
+// In this example, the birthDate property is a readonly property 
+// that is initialized in the constructor of the Person class.
+
+// The following attempts to reassign the birthDate property that results in an error
+
+let person = new Person(new Date(1990, 12, 25));
+person.birthDate = new Date(1991, 12, 25); // Compile error
 
 ```
--   The readonly Modifier 
 
-    - how to use the readonly modifier to make class properties immutable.
+-   Getters & Setters 
+    - TypeScript` getters/setters `to control the access properties of a class.
+    - The getter/setters are also known as accessors/mutators.
+```typescript
+class Person {
+    private _age: number;
+    private _firstName: string;
+    private _lastName: string;
+
+ 
+    public get age() {
+        return this._age;
+    }
+
+    public set age(theAge: number) {
+        if (theAge <= 0 || theAge >= 200) {
+            throw new Error('The age is invalid');
+        }
+        this._age = theAge;
+    }
+
+    public getFullName(): string {
+        return `${this._firstName} ${this._lastName}`;
+    }
+}
+let person = new Person();
+person.age = 10;
+
+ // invalid input
+person.age = 0;
+// Error: The age is invalid
+```
 
 
+-   Inheritance 
+    - the `extends` keyword to allow a class to inherit from another class.
+    - `super()` in the constructor of the child class to call the constructor of the parent class.
+    - Method Overriding: use the `super.methodInParentClass()` syntax to invoke the methodInParentClass() in the method of the child class
+```typescript
+class Person {
+    constructor(private firstName: string, private lastName: string) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    getFullName(): string {
+        return `${this.firstName} ${this.lastName}`;
+    }
+    describe(): string {
+        return `This is ${this.firstName} ${this.lastName}.`;
+    }
+}
 
--   Getters & Setters – show you how to use the getters and setters to control the access of the class properties.
--   Inheritance – learn how to use the inheritance to reuse the functionality of another class.
+            // child class
+class Employee extends Person {
+    constructor(
+        firstName: string,
+        lastName: string,
+        private jobTitle: string) {
+
+        super(firstName, lastName);
+    }
+
+        // method overRiding must include super
+    describe(): string {
+        return super.describe() + `I'm a ${this.jobTitle}.`;
+    }
+}
+
+let employee = new Employee('John', 'Doe', 'Web Developer');
+console.log(employee.describe());
+
+// OutPut:  This is John Doe.I'm a Web Developer.
+```
+
+
 -   Static methods & properties – define static methods and variables shared by all instances of a class.
 -   Abstract Classes – explain the abstract classes that define some common behaviors
 
