@@ -597,7 +597,7 @@ console.log(employee.describe());
             - optional properties `?`
             - readOnly properties: `readOnly`
         - `Function`
-        - `Class`
+        - `Class` : with the help of `implements` we can use interface in Class and define a contract between unrelated classes.
 
 ```typescript
         // File 
@@ -671,16 +671,88 @@ console.log(format('hi', true));
 // output
 HI
 ```
+```typescript
+        // Class
+interface Json {
+   toJSON(): string
+}
 
--   Extending Interfaces 
-    - how to extend an interface to create a combination of interfaces.
+class Person implements Json {
+    constructor(private firstName: string,
+        private lastName: string) {
+    }
+    toJson(): string {
+        return JSON.stringify(this);
+    }
+}
 
+let person = new Person('John', 'Doe');
+console.log(person.toJson());
+
+// outPut
+         {"firstName":"John","lastName":"Doe"}
+```
+-   [Extending Interfaces](https://www.typescripttutorial.net/typescript-tutorial/typescript-extend-interface/)
+    - An interface can extend one or multiple existing interfaces.
+    - An interface also can extend a class. If the class contains private or protected members, the interface can only be implemented by the class or subclasses of that class.
+```typescript
+            // interface extends one interface
+interface A {
+    a(): void
+}
+
+interface B extends A {
+    b(): void
+}
+
+```
+```typescript
+        // interface extends multiple interface
+interface C {
+    c(): void
+}
+
+interface D extends B, C {
+    d(): void
+}
+
+```
+
+```typescript
+        // interface extends  Class
+class Control {
+    private state: boolean;
+}
+
+interface StatefulControl extends Control {
+    enable(): void
+}
+
+class Button extends Control implements StatefulControl {
+    enable() { }
+}
+class TextBox extends Control implements StatefulControl {
+    enable() { }
+}
+class Label extends Control { }
+
+
+// Error: cannot implement
+class Chart implements StatefulControl {
+    enable() { }
+
+}
+```
 # Advanced Types
 
--   Intersection Types – show you how to create a new type that has all features of existing types.
--   Type Guards – learn how to use type guards to narrow the type of a variable within a conditional block.
--   Type Casting – show you how to use type casting to convert a variable of one type to another.
--   Type Assertions – guide you on how to use a type assertion to tell the compiler to treat a value as a specified type.
+-   Intersection Types 
+    - how to create a new type that has all features of existing types.
+-   Type Guards 
+    - how to use type guards to narrow the type of a variable within a conditional block.
+-   Type Casting 
+    - how to use type casting to convert a variable of one type to another.
+-   Type Assertions 
+    - how to use a type assertion to tell the compiler to treat a value as a specified type.
 
 # Generics
 
