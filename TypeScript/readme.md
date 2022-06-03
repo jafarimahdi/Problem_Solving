@@ -746,24 +746,146 @@ class Chart implements StatefulControl {
 # Advanced Types
 
 -   Intersection Types 
-    - how to create a new type that has all features of existing types.
+    - create a new type that has all features of existing types.
+        - `|`
+        - `&`
 -   Type Guards 
-    - how to use type guards to narrow the type of a variable within a conditional block.
--   Type Casting 
-    - how to use type casting to convert a variable of one type to another.
--   Type Assertions 
-    - how to use a type assertion to tell the compiler to treat a value as a specified type.
+    - Type guards narrow down the type of a variable within a conditional block.
+    - Use the `typeof` and `instanceof` operators to implement type guards in the conditional blocks
+        - `typeof`
+        - `instanceof`
+        - `in`
+        - `user-defined`
 
+-   [Type Casting](https://www.typescripttutorial.net/typescript-tutorial/type-casting/) 
+    - type casting is converting a variable of one type to another type.
+        - `< >`
+        - `as `
+
+-   [Type Assertions](https://www.typescripttutorial.net/typescript-tutorial/type-assertions/)
+    - Type assertions instruct the compiler to treat a value as a specified type.
+    - Type assertions do not carry any type conversion.
+    - Type assertions use the `as` keyword or an angle bracket `<>` syntax.
+        - `as`
 # Generics
 
--   Introduction to TypeScript Generics – learn how to use TypeScript generics to develop generic functions.
--   Generic constraints – show you how to add constraints to the generic types.
--   Generic Classes – guide you on how to develop generic classes.
--   Generic Interfaces – walk you through the steps for creating generic interfaces.
+-   TypeScript Generics
+    - Develop generic functions.
+```typescript
+function getRandomElement<T>(items: T[]): T {
+    let randomIndex = Math.floor(Math.random() * items.length);
+    return items[randomIndex];
+}
+// Calling a generic function
+let numbers = [1, 5, 7, 4, 2, 9];
+let randomEle = getRandomElement<number>(numbers); 
+console.log(randomEle);
+```
+```typescript
+// Generic functions with multiple types
+function merge<U, V>(obj1: U, obj2: V) {
+    return {
+        ...obj1,
+        ...obj2
+    };
+}
+
+let result = merge(
+    { name: 'John' },
+    { jobTitle: 'Frontend Developer' }
+);
+console.log(result);
+
+        // out:
+{ name: 'John', jobTitle: 'Frontend Developer' }
+```
+
+-   Generic constraints  
+    - Add constraints to the generic types to accept only file with specific type 
+        - Use `extends` keyword to constrain the type parameter to a specific type.
+        - Use `extends keyof` to constrain a type that is the property of another object.
+
+
+-   Generic Classes 
+    - A generic class has a generic type parameter list in an angle brackets <> that follows the name of the class
+```typescript
+class className<T>{
+    //... 
+}
+
+    // The generic constraints are also applied to the generic types in the class:
+
+class className<T extends TypeA>{
+    //...
+}
+
+```
+
+
+-   Generic Interfaces: A generic interface has generic type parameter list in an angle brackets <> following the name of the interface
+
+    1. Generic interfaces that describe object properties
+    2. Generic interfaces that describe methods
+    3. Generic interfaces that describe index types
+
+```typescript
+    // object properties 
+let month: Pair<string, number> = {
+    key: 'Jan',
+    value: 1
+};
+
+console.log(month);
+```
+
+```typescript
+        // Methods
+interface Collection<T> {
+    add(o: T): void;
+    remove(o: T): void;
+}
+        // And this List<T> generic class implements the Collection<T> generic interface:
+
+class List<T> implements Collection<T>{
+    private items: T[] = [];
+
+    add(o: T): void {
+        this.items.push(o);
+    }
+    remove(o: T): void {
+        let index = this.items.indexOf(o);
+        if (index > -1) {
+            this.items.splice(index, 1);
+        }
+    }
+}
+
+
+let list = new List<number>();
+
+for (let i = 0; i < 10; i++) {
+    list.add(i);
+}
+
+
+```
+```typescript
+//          describe index types
+interface Options<T> {
+    [name: string]: T
+}
+
+let inputOptions: Options<boolean> = {
+    'disabled': false,
+    'visible': true
+};
+
+```
 
 # Modules
 
--   TypeScript Modules – introduce you to modules in TypeScript and how to use them in other modules.
+-   TypeScript Modules 
+    - introduce you to modules in TypeScript and how to use them in other modules.
 
 # TypeScript in Node.js
 
