@@ -821,7 +821,6 @@ class className<T extends TypeA>{
 
 ```
 
-
 -   Generic Interfaces: A generic interface has generic type parameter list in an angle brackets <> following the name of the interface
 
     1. Generic interfaces that describe object properties
@@ -884,9 +883,57 @@ let inputOptions: Options<boolean> = {
 
 # Modules
 
--   TypeScript Modules 
-    - introduce you to modules in TypeScript and how to use them in other modules.
+-   [TypeScript Modules](https://www.typescripttutorial.net/typescript-tutorial/typescript-modules/)
+    - TypeScript shares the same module concept with ES6 module. A module can contain both declarations and code.
+    - In a module, variables, functions, classes, interfaces, etc., executes on its own scope, not the global scope.
+    - Use `export` statement to export variables, functions, classes, interfaces, type, etc., from a module.
+    - Use `import` statement to access exports from other modules.
 
-# TypeScript in Node.js
+        - how to create new Module
+        - export Statement
+        - importing a new Module
+        - importing & export types
+        - importing everything from Module
+        - ReExport Module
+        - Default exports
 
--   Node.js TypeScript – how to set up a development environment for using TypeScript in the Node.js project.
+```typescript
+//      Create a new Module
+export interface Validator {
+    isValid(s: string): boolean
+}
+
+//      Export Statements
+interface Validator {
+    isValid(s: string): boolean
+}
+
+export { Validator };
+
+// `     rename declarations for module consumers
+interface Validator {
+    isValid(s: string): boolean
+}
+
+export { Validator as StringValidator };
+
+//      Importing a new module
+import { Validator } from './Validator';
+
+//          When you import a module, you can rename it  also:
+import { Validator as StringValidator } from './Validator';
+
+//          importing & export types
+
+export type alphanumeric = string | number;
+
+import type {alphanumeric} from './Types';
+import {alphanumeric} from './Types'; // it work the same way
+
+//      Importing everything from a module
+import * from 'module_name';
+
+
+```
+
+- [TypeScript in Node.js](https://www.typescripttutorial.net/typescript-tutorial/nodejs-typescript/)
